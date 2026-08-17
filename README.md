@@ -2,19 +2,29 @@
 
 ## 📌 Project Overview
 
-The **AI-Powered Phishing Email Detection System** is a machine learning application that detects phishing emails using Natural Language Processing (NLP) and supervised learning techniques. It analyzes email content, URLs, suspicious keywords, and other textual features to determine whether an email is **Phishing** or **Safe**.
+The **AI-Powered Phishing Email Detection System** is a machine learning-based cybersecurity application designed to identify potentially phishing emails.
 
-The project demonstrates how machine learning can be applied in cybersecurity to improve email security by automatically identifying potentially malicious messages.
+The system uses **Natural Language Processing (NLP)** and a **fine-tuned DistilBERT transformer model** to analyze the textual content of an email and classify it into one of two categories:
+
+- **Phishing**
+- **Legitimate**
+
+A simple **Streamlit web application** is provided for users to enter an email and receive a prediction from the trained machine learning model.
+
+The project demonstrates the practical application of **Machine Learning, Natural Language Processing, Deep Learning, and Cybersecurity** for detecting phishing emails.
 
 ---
 
 # 🎯 Objectives
 
-* Detect phishing emails using machine learning.
-* Train a classification model on phishing and legitimate emails.
-* Extract meaningful textual and URL-based features.
-* Evaluate model performance using standard classification metrics.
-* Provide real-time predictions through an interactive application.
+* Detect potentially phishing emails using machine learning.
+* Apply Natural Language Processing to email text.
+* Fine-tune a DistilBERT model for email classification.
+* Prepare and process labelled email datasets.
+* Evaluate the trained model using standard classification metrics.
+* Perform error analysis on incorrect predictions.
+* Provide a simple interface for real-time email classification.
+* Demonstrate the application of machine learning in cybersecurity.
 
 ---
 
@@ -22,228 +32,72 @@ The project demonstrates how machine learning can be applied in cybersecurity to
 
 * ✅ Email text preprocessing
 * ✅ Natural Language Processing (NLP)
-* ✅ TF-IDF feature extraction
-* ✅ Suspicious keyword detection
-* ✅ URL detection and analysis
-* ✅ Machine learning-based email classification
-* ✅ Confidence score prediction
-* ✅ Accuracy, Precision, Recall, and F1-Score evaluation
-* ✅ Confusion Matrix visualization
-* ✅ Interactive user interface (Streamlit)
-* ✅ Model persistence using Joblib
+* ✅ Transformer-based text classification
+* ✅ Fine-tuned DistilBERT model
+* ✅ Binary email classification
+* ✅ Phishing / Legitimate prediction
+* ✅ Prediction confidence score
+* ✅ Accuracy evaluation
+* ✅ Precision evaluation
+* ✅ Recall evaluation
+* ✅ F1-Score evaluation
+* ✅ Confusion Matrix
+* ✅ Classification Report
+* ✅ Error analysis
+* ✅ Real-world email evaluation
+* ✅ Simple Streamlit interface
+* ✅ Local trained model inference
 
 ---
 
 # 🛠️ Technologies Used
 
 * Python
-* Scikit-learn
+* PyTorch
+* Hugging Face Transformers
+* DistilBERT
 * Pandas
 * NumPy
-* NLTK
-* Regular Expressions (`re`)
-* Matplotlib
-* Seaborn
-* Joblib
+* Scikit-learn
 * Streamlit
+* Natural Language Processing (NLP)
 
 ---
 
 # 📂 Project Structure
 
 ```text
-AI-Phishing-Detection/
+Phishing-email-detection/
 │
 ├── app.py
-├── train.py
-├── predict.py
-├── preprocess.py
-├── feature_engineering.py
-├── evaluate.py
+├── README.md
+├── LICENSE
+├── .gitignore
 │
-├── dataset/
-│   └── phishing_emails.csv
+├── dataset_v2/
+│   ├── train.csv
+│   ├── validation.csv
+│   └── test.csv
 │
 ├── models/
-│   ├── phishing_model.pkl
-│   └── tfidf_vectorizer.pkl
+│   └── tokenizer/
+│       ├── special_tokens_map.json
+│       ├── tokenizer.json
+│       ├── tokenizer_config.json
+│       └── vocab.txt
 │
-├── reports/
-│   ├── confusion_matrix.png
-│   └── classification_report.txt
+├── src/
+│   ├── add_realistic_data.py
+│   ├── app.py
+│   ├── evaluate.py
+│   ├── evaluate_real.py
+│   ├── feature_engineering.py
+│   ├── predict.py
+│   ├── preprocess.py
+│   ├── sender_verification.py
+│   ├── train.py
+│   └── utils.py
 │
-├── notebooks/
-│   └── exploratory_data_analysis.ipynb
-│
-├── requirements.txt
-├── README.md
-└── LICENSE
-```
-
----
-
-# ⚙️ How It Works
-
-1. Load a labeled phishing email dataset.
-2. Clean and preprocess email text.
-3. Extract textual and structural features.
-4. Convert text into numerical vectors using TF-IDF.
-5. Train multiple machine learning models.
-6. Evaluate each model using classification metrics.
-7. Save the best-performing model.
-8. Accept user input for real-time email classification.
-9. Predict whether the email is **Phishing** or **Safe**.
-10. Display confidence score and prediction results.
-
----
-
-# 🔍 Feature Extraction
-
-The system analyzes several features, including:
-
-* Email body text
-* URL count
-* Suspicious keywords
-* Email length
-* Number of hyperlinks
-* Uppercase letter frequency
-* Special character usage
-* Punctuation patterns
-
----
-
-# 🤖 Machine Learning Models
-
-The project compares multiple supervised learning algorithms:
-
-* Multinomial Naive Bayes
-* Logistic Regression
-* Random Forest Classifier
-* Linear Support Vector Machine (SVM)
-
-The best-performing model is selected based on evaluation metrics.
-
----
-
-# 📊 Model Evaluation
-
-The model is evaluated using:
-
-* Accuracy
-* Precision
-* Recall
-* F1-Score
-* Confusion Matrix
-* Classification Report
-
----
-
-# 📈 Sample Output
-
-```text
-======================================
-AI PHISHING EMAIL DETECTION SYSTEM
-======================================
-
-Enter Email:
-
-Congratulations!
-
-You have won a prize.
-
-Click the link below to claim your reward.
-
-Prediction
-
-⚠️ PHISHING
-
-Confidence Score
-
-98.7%
-
-Detected Indicators
-
-✓ Suspicious keywords
-✓ URL detected
-✓ Promotional language
-```
-
----
-
-# 🚀 Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/anshikasajwan/Phishing-email-detection.git
-```
-
-Navigate to the project directory:
-
-```bash
-cd Phishing-email-detection
-```
-
-Install the required dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Run the training script:
-
-```bash
-python train.py
-```
-
-Launch the application:
-
-```bash
-streamlit run app.py
-```
-
----
-
-# 📚 Learning Outcomes
-
-This project helps develop practical knowledge of:
-
-* Machine Learning
-* Natural Language Processing (NLP)
-* Text Classification
-* Feature Engineering
-* Cybersecurity
-* Phishing Detection
-* Model Evaluation
-* Data Visualization
-* Secure Software Development
-
----
-
-# 🚀 Future Enhancements
-
-* Deep learning models (LSTM, BERT)
-* Email attachment analysis
-* URL reputation checking
-* Real-time email monitoring
-* Browser extension integration
-* REST API deployment
-* Cloud deployment
-* Multi-language phishing detection
-* Explainable AI (XAI) for prediction transparency
-
----
-
-# 👨‍💻 Author
-
-**Name:** *Anshika Sajwan*
-
-**Project:** AI-Powered Phishing Email Detection System
-
-**Language:** Python
-
----
-
-# 📜 License
-
-This project is developed for educational and research purposes. It demonstrates how machine learning and Natural Language Processing can be applied to detect phishing emails and improve cybersecurity awareness.
+├── generate_dataset.py
+├── test.py
+└── test_features.py
